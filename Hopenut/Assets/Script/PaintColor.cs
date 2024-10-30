@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PaintColor : MonoBehaviour
 {
-    public Material paintColor;
+    private Material paintColor;
     public Material red;
     public Material green;
     public Material blue;

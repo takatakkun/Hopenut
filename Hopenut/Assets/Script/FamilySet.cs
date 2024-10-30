@@ -20,7 +20,7 @@ public class FamilySet : MonoBehaviour
             Vector3 tmp = Cube[i].transform.position;
             float x = tmp.x;
 
-            if ((x > 0.5) && (x< 1.5))
+            if ((x > 1.8) && (x< 2.2))
             {
                 Cube[i].transform.parent = XPlusParent.transform;
             }
@@ -34,7 +34,7 @@ public class FamilySet : MonoBehaviour
             Vector3 tmp = Cube[i].transform.position;
             float x = tmp.x;
 
-            if ((x < -0.5) && (x > -1.5))
+            if ((x < 0.2) && (x > -0.2))
             {
                 Cube[i].transform.parent = XMinusParent.transform;
             }
@@ -48,7 +48,7 @@ public class FamilySet : MonoBehaviour
             Vector3 tmp = Cube[i].transform.position;
             float y = tmp.y;
 
-            if ((y > 1.5) && (y < 2.5))
+            if ((y > 1.8) && (y < 2.2))
             {
                 Cube[i].transform.parent = YPlusParent.transform;
             }
@@ -62,7 +62,7 @@ public class FamilySet : MonoBehaviour
             Vector3 tmp = Cube[i].transform.position;
             float y = tmp.y;
 
-            if ((y < 0.5) && (y > -0.5))
+            if ((y < 0.2) && (y > -0.2))
             {
                 Cube[i].transform.parent = YMinusParent.transform;
             }
@@ -76,7 +76,7 @@ public class FamilySet : MonoBehaviour
             Vector3 tmp = Cube[i].transform.position;
             float z = tmp.z;
 
-            if ((z > 0.5) && (z < 1.5))
+            if ((z > 1.8) && (z < 2.2))
             {
                 Cube[i].transform.parent = ZPlusParent.transform;
             }
@@ -90,7 +90,7 @@ public class FamilySet : MonoBehaviour
             Vector3 tmp = Cube[i].transform.position;
             float z = tmp.z;
 
-            if ((z < -0.5) && (z > -1.5))
+            if ((z < 0.2) && (z > -0.2))
             {
                 Cube[i].transform.parent = ZMinusParent.transform;
             }
