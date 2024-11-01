@@ -11,46 +11,62 @@ public class PaintColor : MonoBehaviour
     public Material blue;
     public Material orange;
     public Material white;
-    private GameObject firstclickobj;
+    private Vector2 firstclickobj;
+    private Vector2 lastclickobj;
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
-            if (Input.GetMouseButtonDown(0)) //スマホの時の処理がない
+            Ray ray0;
+            // カメラからクリック位置へのRayを生成
+            if (Input.GetMouseButtonDown(0))
             {
-                // カメラからクリック位置へのRayを生成
-                Ray ray0 = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+                ray0 = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray0, out RaycastHit hit0))
+                {
+                    firstclickobj = Input.mousePosition;
+                }
+            }
+            else
+            {
+                 ray0 = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 // RaycastHitオブジェクトでヒット情報を格納
                 if (Physics.Raycast(ray0, out RaycastHit hit0))
                 {
-                    firstclickobj = hit0.collider.gameObject;
+                    firstclickobj = Input.GetTouch(0).position;
                 }
             }
         }
             // マウスクリックまたはタッチが行われたとき
-            if (Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended))
+        if (Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended))
+        {
+            Ray ray;
+            // カメラからクリック位置へのRayを生成
+            if (Input.GetMouseButtonUp(0))
             {
-                if (Input.GetMouseButtonUp(0)) //スマホの時の処理がない
-                {
-                    // カメラからクリック位置へのRayを生成
-                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                    // RaycastHitオブジェクトでヒット情報を格納
-                    if (Physics.Raycast(ray, out RaycastHit hit))
-                    {
-                        // ヒットしたオブジェクトがクアッドであるかチェック
-                        if (hit.collider.gameObject.CompareTag("Quad") && firstclickobj == hit.collider.gameObject)
-                        {
-                            // ヒットしたオブジェクトのRendererを取得してマテリアル変更
-                            Renderer quadRenderer = hit.collider.gameObject.GetComponent<Renderer>();
-                            quadRenderer.GetComponent<Renderer>().material.color = paintColor.color;
-                        }
-                    }
-                }
-                firstclickobj = null;
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                lastclickobj = Input.mousePosition;
             }
+            else
+            {
+                ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                lastclickobj = Input.GetTouch(0).position;
+            }
+
+            // RaycastHitオブジェクトでヒット情報を格納
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                // ヒットしたオブジェクトがクアッドであるかチェック
+                if (hit.collider.gameObject.CompareTag("Quad") && firstclickobj == lastclickobj)
+                {
+                    // ヒットしたオブジェクトのRendererを取得してマテリアル変更
+                    Renderer quadRenderer = hit.collider.gameObject.GetComponent<Renderer>();
+                    quadRenderer.GetComponent<Renderer>().material.color = paintColor.color;
+                }
+            }
+                firstclickobj = lastclickobj;
+        }
     }
 
 
