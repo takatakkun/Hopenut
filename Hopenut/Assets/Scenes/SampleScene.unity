@@ -249,6 +249,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1785914577}
+  - {fileID: 1828991282}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -989,6 +990,139 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1785914576}
+  m_CullTransparentMesh: 1
+--- !u!1 &1828991281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1828991282}
+  - component: {fileID: 1828991285}
+  - component: {fileID: 1828991284}
+  - component: {fileID: 1828991283}
+  m_Layer: 5
+  m_Name: red
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1828991282
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828991281}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 296342038}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -350, y: 511.88}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1828991283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828991281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1828991284}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1404497006}
+        m_TargetAssemblyTypeName: PaintColor, Assembly-CSharp
+        m_MethodName: RedTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1828991284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828991281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1828991285
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828991281}
   m_CullTransparentMesh: 1
 --- !u!1 &1934405020
 GameObject:
@@ -3105,7 +3239,7 @@ GameObject:
   - component: {fileID: 6842899829803487637}
   m_Layer: 0
   m_Name: Quad (4)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3124,7 +3258,7 @@ GameObject:
   - component: {fileID: 7315422097199247069}
   m_Layer: 0
   m_Name: Quad (1)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3367,7 +3501,7 @@ GameObject:
   - component: {fileID: 4079566120637626896}
   m_Layer: 0
   m_Name: Quad (2)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3527,7 +3661,7 @@ GameObject:
   - component: {fileID: 6528093249071934463}
   m_Layer: 0
   m_Name: Quad (3)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5026,7 +5160,7 @@ GameObject:
   - component: {fileID: 6935295380878492055}
   m_Layer: 0
   m_Name: Quad (5)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5126,7 +5260,7 @@ GameObject:
   - component: {fileID: 2485916262134138499}
   m_Layer: 0
   m_Name: Quad (2)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6001,7 +6135,7 @@ GameObject:
   - component: {fileID: 1291003912423175209}
   m_Layer: 0
   m_Name: Quad (5)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8200,7 +8334,7 @@ GameObject:
   - component: {fileID: 6306801961576082526}
   m_Layer: 0
   m_Name: Quad (3)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8284,7 +8418,7 @@ GameObject:
   - component: {fileID: 1096476174571448928}
   m_Layer: 0
   m_Name: Quad (4)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8303,7 +8437,7 @@ GameObject:
   - component: {fileID: 3120482628628932345}
   m_Layer: 0
   m_Name: Quad (3)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9048,7 +9182,7 @@ GameObject:
   - component: {fileID: 4533663459945742339}
   m_Layer: 0
   m_Name: Quad (4)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9627,7 +9761,7 @@ GameObject:
   - component: {fileID: 8723272115772337171}
   m_Layer: 0
   m_Name: Quad (1)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9941,7 +10075,7 @@ GameObject:
   - component: {fileID: 4155401642073429464}
   m_Layer: 0
   m_Name: Quad (3)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11447,7 +11581,7 @@ GameObject:
   - component: {fileID: 9056653366414478048}
   m_Layer: 0
   m_Name: Quad (5)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11662,7 +11796,7 @@ GameObject:
   - component: {fileID: 7676795918821089114}
   m_Layer: 0
   m_Name: Quad (5)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12250,7 +12384,7 @@ GameObject:
   - component: {fileID: 8020754164396202643}
   m_Layer: 0
   m_Name: Quad (1)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12685,7 +12819,7 @@ GameObject:
   - component: {fileID: 8886540125305179458}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13692,7 +13826,7 @@ GameObject:
   - component: {fileID: 7621818511181004698}
   m_Layer: 0
   m_Name: Quad (4)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13747,7 +13881,7 @@ GameObject:
   - component: {fileID: 4450399310880788097}
   m_Layer: 0
   m_Name: Quad (4)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13766,7 +13900,7 @@ GameObject:
   - component: {fileID: 7432291182308802812}
   m_Layer: 0
   m_Name: Quad (2)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13793,7 +13927,7 @@ GameObject:
   - component: {fileID: 3415403851128573287}
   m_Layer: 0
   m_Name: Quad (5)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14584,7 +14718,7 @@ GameObject:
   - component: {fileID: 5625579948571774771}
   m_Layer: 0
   m_Name: Quad (1)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14972,7 +15106,7 @@ GameObject:
   - component: {fileID: 4648667135928577419}
   m_Layer: 0
   m_Name: Quad (3)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16903,7 +17037,7 @@ GameObject:
   - component: {fileID: 8484619948323861099}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17469,7 +17603,7 @@ GameObject:
   - component: {fileID: 3568475520242275050}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18160,7 +18294,7 @@ GameObject:
   - component: {fileID: 4394023425253406455}
   m_Layer: 0
   m_Name: Quad (1)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18905,7 +19039,7 @@ GameObject:
   - component: {fileID: 8482041027269899942}
   m_Layer: 0
   m_Name: Quad (1)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19740,7 +19874,7 @@ GameObject:
   - component: {fileID: 2111090858188496384}
   m_Layer: 0
   m_Name: Quad (1)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20048,7 +20182,7 @@ GameObject:
   - component: {fileID: 9000903042026118388}
   m_Layer: 0
   m_Name: Quad (3)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20241,7 +20375,7 @@ GameObject:
   - component: {fileID: 2983780427800845387}
   m_Layer: 0
   m_Name: Quad (2)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20359,7 +20493,7 @@ GameObject:
   - component: {fileID: 9000691471552263717}
   m_Layer: 0
   m_Name: Quad (2)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21000,7 +21134,7 @@ GameObject:
   - component: {fileID: 6882490251994078243}
   m_Layer: 0
   m_Name: Quad (2)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22079,7 +22213,7 @@ GameObject:
   - component: {fileID: 964262478435346451}
   m_Layer: 0
   m_Name: Quad (2)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26178,7 +26312,7 @@ GameObject:
   - component: {fileID: 1658131475011619682}
   m_Layer: 0
   m_Name: Quad (4)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26329,7 +26463,7 @@ GameObject:
   - component: {fileID: 4033737478828162874}
   m_Layer: 0
   m_Name: Quad (4)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26699,7 +26833,7 @@ GameObject:
   - component: {fileID: 8960072612630018968}
   m_Layer: 0
   m_Name: Quad (4)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27741,7 +27875,7 @@ GameObject:
   - component: {fileID: 8929388498419238613}
   m_Layer: 0
   m_Name: Quad (5)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28669,7 +28803,7 @@ GameObject:
   - component: {fileID: 7967598151550523210}
   m_Layer: 0
   m_Name: Quad (5)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28992,7 +29126,7 @@ GameObject:
   - component: {fileID: 5746066100758422794}
   m_Layer: 0
   m_Name: Quad (4)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29382,7 +29516,7 @@ GameObject:
   - component: {fileID: 2587849368002046874}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29781,7 +29915,7 @@ GameObject:
   - component: {fileID: 1827074621322804905}
   m_Layer: 0
   m_Name: Quad (5)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32089,7 +32223,7 @@ GameObject:
   - component: {fileID: 4360639165903748008}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34714,7 +34848,7 @@ GameObject:
   - component: {fileID: 4461888325168350696}
   m_Layer: 0
   m_Name: Quad (1)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36949,7 +37083,7 @@ GameObject:
   - component: {fileID: 1490218102915058870}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37311,7 +37445,7 @@ GameObject:
   - component: {fileID: 2431675926340281503}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38686,7 +38820,7 @@ GameObject:
   - component: {fileID: 8681325264288321359}
   m_Layer: 0
   m_Name: Quad (3)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39971,7 +40105,7 @@ GameObject:
   - component: {fileID: 3280795272730388025}
   m_Layer: 0
   m_Name: Quad (2)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40926,7 +41060,7 @@ GameObject:
   - component: {fileID: 5048723397949088253}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41191,7 +41325,7 @@ GameObject:
   - component: {fileID: 105264796530000707}
   m_Layer: 0
   m_Name: Quad (1)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42524,7 +42658,7 @@ GameObject:
   - component: {fileID: 676225893490091523}
   m_Layer: 0
   m_Name: Quad (2)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42838,7 +42972,7 @@ GameObject:
   - component: {fileID: 6368721081046264734}
   m_Layer: 0
   m_Name: Quad (3)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42926,7 +43060,7 @@ GameObject:
   - component: {fileID: 1464830599100297161}
   m_Layer: 0
   m_Name: Quad (3)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43333,7 +43467,7 @@ GameObject:
   - component: {fileID: 1695816152634211204}
   m_Layer: 0
   m_Name: Quad (5)
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43540,7 +43674,7 @@ GameObject:
   - component: {fileID: 696670884255271738}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: Quad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
