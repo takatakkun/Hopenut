@@ -13,10 +13,11 @@ public class PaintColor : MonoBehaviour
     public Material white;
     private Vector2 firstclickpos;
     private Vector2 lastclickpos;
-    private Vector3 objpos;
+    private Vector3 firsthitpos;
     public bool rotationable;
-    private Vector2 clickingpos;
+    private Vector3 hittingpos;
     public FamilySet familyset;
+    private Vector3 objpos;
 
     void Update()
     {
@@ -30,9 +31,12 @@ public class PaintColor : MonoBehaviour
                 if (Physics.Raycast(ray0, out RaycastHit hit0))
                 {
                     firstclickpos = Input.mousePosition;
+                    firsthitpos = hit0.point;
                     objpos = hit0.collider.transform.position;
                     rotationable = false;
-                    Debug.Log(objpos);
+                    Debug.Log(firsthitpos);
+                    //   Debug.Log(hit0.point);
+                    //   Debug.Log(objpos);
                 }
             }
             else                                                                 //ƒXƒ}ƒz‘€ì
@@ -42,7 +46,7 @@ public class PaintColor : MonoBehaviour
                 if (Physics.Raycast(ray0, out RaycastHit hit0))
                 {
                     firstclickpos = Input.GetTouch(0).position;
-                    objpos = hit0.collider.transform.position;
+                    firsthitpos = hit0.point;
                     rotationable = false;
                 }
             }
@@ -80,62 +84,100 @@ public class PaintColor : MonoBehaviour
             }
                 firstclickpos = lastclickpos;
         }
-
+        
         if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)) && rotationable == false)
         {
             if (Input.GetMouseButton(0))
             {
-                clickingpos = Input.mousePosition;
-                Vector2 dpos = clickingpos - firstclickpos;
-
-                if ((dpos.y > -dpos.x && dpos.y < dpos.x) || (dpos.y < -dpos.x && dpos.y > dpos.x))
+                Ray ray1 = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray1, out RaycastHit hit1))
                 {
-                    if (objpos.y > 1.7 && objpos.y < 2.3)
+                    hittingpos = hit1.point;
+                    Vector3 dpos = hittingpos - firsthitpos;
+                    if (((dpos.y > -dpos.z && dpos.y < dpos.z) || (dpos.y < -dpos.z && dpos.y > dpos.z)) && ((objpos.x > -0.5 && objpos.x < -0.46) || (objpos.x > 2.46 && objpos.x < 2.5))) //x+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
                     {
-                        familyset.YPlusClick();
+                        if ((objpos.y > 1.7 && objpos.y < 2.3))
+                        {
+                            familyset.YPlusClick();
+                        }
+                        if (objpos.y > -0.7 && objpos.y < 0.3)
+                        {
+                            familyset.YMinusClick();
+                        }
                         rotationable = true;
+                        Debug.Log("x+-y");
                     }
-                    if (objpos.y > -0.7 && objpos.y < 0.3)
+                    if (((dpos.y > -dpos.x && dpos.y < dpos.x) || (dpos.y < -dpos.x && dpos.y > dpos.x)) && ((objpos.z > -0.5 && objpos.z < -0.46) || (objpos.z > 2.46 && objpos.z < 2.5))) //z+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
                     {
-                        familyset.YMinusClick();
+                        if ((objpos.y > 1.7 && objpos.y < 2.3))
+                        {
+                            familyset.YPlusClick();
+                        }
+                        if (objpos.y > -0.7 && objpos.y < 0.3)
+                        {
+                            familyset.YMinusClick();
+                        }
                         rotationable = true;
+                        Debug.Log("z+-y");
                     }
-                }
-                if((dpos.y > dpos.x && dpos.y > -dpos.x) || (dpos.y < dpos.x && dpos.y < -dpos.x))
-                {
-                    if (objpos.x > 1.7 && objpos.x < 2.3)
+                    if (((dpos.z > -dpos.x && dpos.z < dpos.x) || (dpos.z < -dpos.x && dpos.z > dpos.x)) && ((objpos.y > -0.5 && objpos.y < -0.46) || (objpos.y > 2.46 && objpos.y < 2.5))) //y+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
                     {
-                        familyset.XPlusClick();
+                        if (objpos.z > 1.7 && objpos.z < 2.3)
+                        {
+                            familyset.ZPlusClick();
+                        }
+                        if (objpos.z > -0.7 && objpos.z < 0.3)
+                        {
+                            familyset.ZMinusClick();
+                        }
                         rotationable = true;
+                        Debug.Log("y+-y");
                     }
-                    if (objpos.x > -0.7 && objpos.x < 0.3)
+                    if (((dpos.y > dpos.z && dpos.y > -dpos.z) || (dpos.y < dpos.z && dpos.y < -dpos.z)) && ((objpos.x > -0.5 && objpos.x < -0.46) || (objpos.x > 2.46 && objpos.x < 2.5))) //x+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
-                        familyset.XMinusClick();
+                        if (objpos.z > 1.7 && objpos.z < 2.3)
+                        {
+                            familyset.ZPlusClick();
+                        }
+                        if (objpos.z > -0.7 && objpos.z < 0.3)
+                        {
+                            familyset.ZMinusClick();
+                        }
                         rotationable = true;
+                        Debug.Log("x+-t");
                     }
-                    if (objpos.z > 1.7 && objpos.z < 2.3)
+                    if (((dpos.y > dpos.x && dpos.y > -dpos.x) || (dpos.y < dpos.x && dpos.y < -dpos.x)) && ((objpos.z > -0.5 && objpos.z < -0.46) || (objpos.z > 2.46 && objpos.z < 2.5))) //z+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
-                        familyset.ZPlusClick();
+                        if (objpos.x > 1.7 && objpos.x < 2.3)
+                        {
+                            familyset.XPlusClick();
+                        }
+                        if (objpos.x > -0.7 && objpos.x < 0.3)
+                        {
+                            familyset.XMinusClick();
+                        }
                         rotationable = true;
+                        Debug.Log("z+-t");
                     }
-                    if (objpos.z > -0.7 && objpos.z < 0.3)
+                    if (((dpos.z > dpos.x && dpos.z > -dpos.x) || (dpos.z < dpos.x && dpos.z < -dpos.x)) && ((objpos.y > -0.5 && objpos.y < -0.46) || (objpos.y > 2.46 && objpos.y < 2.5))) //y+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
-                        familyset.ZMinusClick();
+                        if (objpos.x > 1.7 && objpos.x < 2.3)
+                        {
+                            familyset.XPlusClick();
+                        }
+                        if (objpos.x > -0.7 && objpos.x < 0.3)
+                        {
+                            familyset.XMinusClick();
+                        }
                         rotationable = true;
+                        Debug.Log("y+-t");
                     }
                 }
             }
             else
             {
-                clickingpos = Input.GetTouch(0).position;
-                if (firstclickpos.x != clickingpos.x)
-                {
+                hittingpos = Input.GetTouch(0).position;
 
-                }
-                if (firstclickpos.y != clickingpos.y)
-                {
-
-                }
             }
         }
     }
