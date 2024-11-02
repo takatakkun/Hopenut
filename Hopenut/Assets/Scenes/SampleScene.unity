@@ -742,6 +742,8 @@ MonoBehaviour:
   blue: {fileID: 2100000, guid: d02f3da47ab5df642a5755b27cff5caf, type: 2}
   orange: {fileID: 2100000, guid: 0d17ac521bc529e45b8c60d9944716d5, type: 2}
   white: {fileID: 2100000, guid: f9b893900e0ed8c41bba56db26f15e4c, type: 2}
+  rotationable: 0
+  familyset: {fileID: 1934405022}
 --- !u!1 &1430457051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,33 +1171,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cube:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5067995775499504348}
+  - {fileID: 7457650131105927759}
+  - {fileID: 6131991633829216248}
+  - {fileID: 2297953008521793087}
+  - {fileID: 4832294696553326094}
+  - {fileID: 4147926645877908522}
+  - {fileID: 6838182346503554884}
+  - {fileID: 7144299427591960440}
+  - {fileID: 8267600633049512482}
+  - {fileID: 6776261697454806438}
+  - {fileID: 3173232648823297217}
+  - {fileID: 8921849197816164998}
+  - {fileID: 3554220013208461610}
+  - {fileID: 3656463376389308152}
+  - {fileID: 7780297657576601388}
+  - {fileID: 6073488870627740441}
+  - {fileID: 1355223296217434857}
+  - {fileID: 3965714923169303279}
+  - {fileID: 5137668163624592464}
+  - {fileID: 1527097276832364861}
+  - {fileID: 3450235674669393682}
+  - {fileID: 2625714459244040138}
+  - {fileID: 2741340325860683345}
+  - {fileID: 7659841732869117829}
+  - {fileID: 4509504519636462137}
+  - {fileID: 5288610275313356203}
+  - {fileID: 5688484740231098143}
   XPlusParent: {fileID: 2003333500}
   XMinusParent: {fileID: 1430457051}
   YPlusParent: {fileID: 295057799}
