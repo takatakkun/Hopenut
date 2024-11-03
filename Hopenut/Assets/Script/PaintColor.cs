@@ -14,10 +14,11 @@ public class PaintColor : MonoBehaviour
     private Vector2 firstclickpos;
     private Vector2 lastclickpos;
     private Vector3 firsthitpos;
-    public bool rotationable;
+    public bool rotationable = false;
     private Vector3 hittingpos;
     public FamilySet familyset;
     private Vector3 objpos;
+    public float rotatedirection;
 
     void Update()
     {
@@ -99,10 +100,26 @@ public class PaintColor : MonoBehaviour
                         if ((objpos.y > 1.7 && objpos.y < 2.3))
                         {
                             familyset.YPlusClick();
+                            if (objpos.x > 2.46 && objpos.x < 2.5)
+                            {
+                                rotatedirection = -dpos.x;
+                            }
+                            else
+                            {
+                                rotatedirection = dpos.x;
+                            }
                         }
                         else if (objpos.y > -0.7 && objpos.y < 0.3)
                         {
                             familyset.YMinusClick();
+                            if (objpos.x > 2.46 && objpos.x < 2.5)
+                            {
+                                rotatedirection = -dpos.x;
+                            }
+                            else
+                            {
+                                rotatedirection = dpos.x;
+                            }
                         }
                         rotationable = true;
                         Debug.Log("x+-y");
@@ -112,10 +129,26 @@ public class PaintColor : MonoBehaviour
                         if ((objpos.y > 1.7 && objpos.y < 2.3))
                         {
                             familyset.YPlusClick();
+                            if (objpos.z > 2.46 && objpos.z < 2.5)
+                            {
+                                rotatedirection = dpos.z;
+                            }
+                            else
+                            {
+                                rotatedirection= -dpos.z;
+                            }
                         }
                         else if (objpos.y > -0.7 && objpos.y < 0.3)
                         {
                             familyset.YMinusClick();
+                            if (objpos.z > 2.46 && objpos.z < 2.5)
+                            {
+                                rotatedirection = dpos.z;
+                            }
+                            else
+                            {
+                                rotatedirection = -dpos.z;
+                            }
                         }
                         rotationable = true;
                         Debug.Log("z+-y");
@@ -125,10 +158,26 @@ public class PaintColor : MonoBehaviour
                         if (objpos.z > 1.7 && objpos.z < 2.3)
                         {
                             familyset.ZPlusClick();
+                            if (objpos.y > 2.46 && objpos.y < 2.5)
+                            {
+                                rotatedirection = -dpos.y;
+                            }
+                            else
+                            {
+                                rotatedirection= dpos.y;
+                            }
                         }
                         else if (objpos.z > -0.7 && objpos.z < 0.3)
                         {
                             familyset.ZMinusClick();
+                            if (objpos.y > 2.46 && objpos.y < 2.5)
+                            {
+                                rotatedirection = -dpos.y;
+                            }
+                            else
+                            {
+                                rotatedirection = dpos.y;
+                            }
                         }
                         rotationable = true;
                         Debug.Log("y+-y");
@@ -138,10 +187,26 @@ public class PaintColor : MonoBehaviour
                         if (objpos.z > 1.7 && objpos.z < 2.3)
                         {
                             familyset.ZPlusClick();
+                            if (objpos.x > 2.46 && objpos.x < 2.5)
+                            {
+                                rotatedirection = dpos.x;
+                            }
+                            else
+                            {
+                                rotatedirection = -dpos.x;
+                            }
                         }
                         else if (objpos.z > -0.7 && objpos.z < 0.3)
                         {
                             familyset.ZMinusClick();
+                            if (objpos.x > 2.46 && objpos.x < 2.5)
+                            {
+                                rotatedirection= dpos.x;
+                            }
+                            else
+                            {
+                                rotatedirection = -dpos.x;
+                            }
                         }
                         rotationable = true;
                         Debug.Log("x+-t");
@@ -151,10 +216,26 @@ public class PaintColor : MonoBehaviour
                         if (objpos.x > 1.7 && objpos.x < 2.3)
                         {
                             familyset.XPlusClick();
+                            if (objpos.z > 2.46 && objpos.z < 2.5)
+                            {
+                                rotatedirection = -dpos.z;
+                            }
+                            else
+                            {
+                                rotatedirection = dpos.z;
+                            }
                         }
                         else if (objpos.x > -0.7 && objpos.x < 0.3)
                         {
                             familyset.XMinusClick();
+                            if (objpos.z > 2.46 && objpos.z < 2.5)
+                            {
+                                rotatedirection = -dpos.z;
+                            }
+                            else
+                            {
+                                rotatedirection= dpos.z;
+                            }
                         }
                         rotationable = true;
                         Debug.Log("z+-t");
@@ -164,10 +245,26 @@ public class PaintColor : MonoBehaviour
                         if (objpos.x > 1.7 && objpos.x < 2.3)
                         {
                             familyset.XPlusClick();
+                            if (objpos.y > 2.46 && objpos.y < 2.5)
+                            {
+                                rotatedirection = dpos.y;
+                            }
+                            else
+                            {
+                                rotatedirection = -dpos.y;
+                            }
                         }
                         else if (objpos.x > -0.7 && objpos.x < 0.3)
                         {
                             familyset.XMinusClick();
+                            if (objpos.y > 2.46 && objpos.y < 2.5)
+                            {
+                                rotatedirection = dpos.y;
+                            }
+                            else
+                            {
+                                rotatedirection = -dpos.y;
+                            }
                         }
                         rotationable = true;
                         Debug.Log("y+-t");

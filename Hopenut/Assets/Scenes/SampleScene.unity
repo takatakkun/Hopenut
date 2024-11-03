@@ -744,6 +744,7 @@ MonoBehaviour:
   white: {fileID: 2100000, guid: f9b893900e0ed8c41bba56db26f15e4c, type: 2}
   rotationable: 0
   familyset: {fileID: 1934405022}
+  rotatedirection: 0
 --- !u!1 &1428862783
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +915,7 @@ MonoBehaviour:
   ZPlusParent: {fileID: 1351500023}
   ZMinusParent: {fileID: 2048381134}
   RotationCollider: {fileID: 1428862783}
+  paintcolor: {fileID: 1404497006}
 --- !u!1 &1785914576
 GameObject:
   m_ObjectHideFlags: 0

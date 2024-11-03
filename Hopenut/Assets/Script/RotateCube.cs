@@ -17,6 +17,12 @@ public class RotateCube : MonoBehaviour
     public GameObject RotationCollider;
     private Vector3 Distance;
     private Vector3 firstRCpos;
+    public PaintColor paintcolor;
+
+    private void Start()
+    {
+        paintcolor = GetComponent<PaintColor>();
+    }
 
     private void Update()
     {
@@ -52,6 +58,17 @@ public class RotateCube : MonoBehaviour
                 {
                     hittingpos = hit1.point;
                     RotationCollider.transform.position = Distance + hittingpos;
+                    //Debug.Log(paintcolor.rotationable);
+/*                    if (paintcolor.rotationable == true)
+                    {
+                        float r = paintcolor.rotatedirection;
+                        XPlusParent.transform.Rotate(r, 0, 0);
+                        XMinusParent.transform.Rotate(r, 0, 0);
+                        YPlusParent.transform.Rotate(0, r, 0);
+                        YMinusParent.transform.Rotate(0, r, 0);
+                        ZPlusParent.transform.Rotate(0, 0, r);
+                        ZMinusParent.transform.Rotate(0, 0, r);
+                    }*/
                 }
             }
             else
