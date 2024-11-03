@@ -100,72 +100,72 @@ public class PaintColor : MonoBehaviour
                         {
                             familyset.YPlusClick();
                         }
-                        if (objpos.y > -0.7 && objpos.y < 0.3)
+                        else if (objpos.y > -0.7 && objpos.y < 0.3)
                         {
                             familyset.YMinusClick();
                         }
                         rotationable = true;
                         Debug.Log("x+-y");
                     }
-                    if (((dpos.y > -dpos.x && dpos.y < dpos.x) || (dpos.y < -dpos.x && dpos.y > dpos.x)) && ((objpos.z > -0.5 && objpos.z < -0.46) || (objpos.z > 2.46 && objpos.z < 2.5))) //z+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
+                    else if (((dpos.y > -dpos.x && dpos.y < dpos.x) || (dpos.y < -dpos.x && dpos.y > dpos.x)) && ((objpos.z > -0.5 && objpos.z < -0.46) || (objpos.z > 2.46 && objpos.z < 2.5))) //z+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
                     {
                         if ((objpos.y > 1.7 && objpos.y < 2.3))
                         {
                             familyset.YPlusClick();
                         }
-                        if (objpos.y > -0.7 && objpos.y < 0.3)
+                        else if (objpos.y > -0.7 && objpos.y < 0.3)
                         {
                             familyset.YMinusClick();
                         }
                         rotationable = true;
                         Debug.Log("z+-y");
                     }
-                    if (((dpos.z > -dpos.x && dpos.z < dpos.x) || (dpos.z < -dpos.x && dpos.z > dpos.x)) && ((objpos.y > -0.5 && objpos.y < -0.46) || (objpos.y > 2.46 && objpos.y < 2.5))) //y+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
+                    else if (((dpos.z > -dpos.x && dpos.z < dpos.x) || (dpos.z < -dpos.x && dpos.z > dpos.x)) && ((objpos.y > -0.5 && objpos.y < -0.46) || (objpos.y > 2.46 && objpos.y < 2.5))) //y+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
                     {
                         if (objpos.z > 1.7 && objpos.z < 2.3)
                         {
                             familyset.ZPlusClick();
                         }
-                        if (objpos.z > -0.7 && objpos.z < 0.3)
+                        else if (objpos.z > -0.7 && objpos.z < 0.3)
                         {
                             familyset.ZMinusClick();
                         }
                         rotationable = true;
                         Debug.Log("y+-y");
                     }
-                    if (((dpos.y > dpos.z && dpos.y > -dpos.z) || (dpos.y < dpos.z && dpos.y < -dpos.z)) && ((objpos.x > -0.5 && objpos.x < -0.46) || (objpos.x > 2.46 && objpos.x < 2.5))) //x+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
+                    else if (((dpos.y > dpos.z && dpos.y > -dpos.z) || (dpos.y < dpos.z && dpos.y < -dpos.z)) && ((objpos.x > -0.5 && objpos.x < -0.46) || (objpos.x > 2.46 && objpos.x < 2.5))) //x+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
                         if (objpos.z > 1.7 && objpos.z < 2.3)
                         {
                             familyset.ZPlusClick();
                         }
-                        if (objpos.z > -0.7 && objpos.z < 0.3)
+                        else if (objpos.z > -0.7 && objpos.z < 0.3)
                         {
                             familyset.ZMinusClick();
                         }
                         rotationable = true;
                         Debug.Log("x+-t");
                     }
-                    if (((dpos.y > dpos.x && dpos.y > -dpos.x) || (dpos.y < dpos.x && dpos.y < -dpos.x)) && ((objpos.z > -0.5 && objpos.z < -0.46) || (objpos.z > 2.46 && objpos.z < 2.5))) //z+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
+                    else if (((dpos.y > dpos.x && dpos.y > -dpos.x) || (dpos.y < dpos.x && dpos.y < -dpos.x)) && ((objpos.z > -0.5 && objpos.z < -0.46) || (objpos.z > 2.46 && objpos.z < 2.5))) //z+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
                         if (objpos.x > 1.7 && objpos.x < 2.3)
                         {
                             familyset.XPlusClick();
                         }
-                        if (objpos.x > -0.7 && objpos.x < 0.3)
+                        else if (objpos.x > -0.7 && objpos.x < 0.3)
                         {
                             familyset.XMinusClick();
                         }
                         rotationable = true;
                         Debug.Log("z+-t");
                     }
-                    if (((dpos.z > dpos.x && dpos.z > -dpos.x) || (dpos.z < dpos.x && dpos.z < -dpos.x)) && ((objpos.y > -0.5 && objpos.y < -0.46) || (objpos.y > 2.46 && objpos.y < 2.5))) //y+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
+                    else if (((dpos.z > dpos.x && dpos.z > -dpos.x) || (dpos.z < dpos.x && dpos.z < -dpos.x)) && ((objpos.y > -0.5 && objpos.y < -0.46) || (objpos.y > 2.46 && objpos.y < 2.5))) //y+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
                         if (objpos.x > 1.7 && objpos.x < 2.3)
                         {
                             familyset.XPlusClick();
                         }
-                        if (objpos.x > -0.7 && objpos.x < 0.3)
+                        else if (objpos.x > -0.7 && objpos.x < 0.3)
                         {
                             familyset.XMinusClick();
                         }

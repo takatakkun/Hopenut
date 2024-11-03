@@ -10,9 +10,68 @@ public class RotateCube : MonoBehaviour
     public GameObject YMinusParent;
     public GameObject ZPlusParent;
     public GameObject ZMinusParent;
-    bool rot = true;
-    float speed = 1f;
+    //bool rot = true;
+    //float speed = 1f;
+    private Vector3 firsthitpos;
+    private Vector3 hittingpos;
+    public GameObject RotationCollider;
+    private Vector3 Distance;
+    private Vector3 firstRCpos;
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
+        {
+            Ray ray;
+            firstRCpos = RotationCollider.transform.position;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out RaycastHit hit, 15, 1 << 2)) //レーザーの距離15、レイヤーが2のやつだけに当たる
+                {
+                    Debug.Log(hit.collider.gameObject.name);
+                    firsthitpos = hit.point;
+                    Distance = RotationCollider.transform.position - firsthitpos;
+                }
+
+            }
+            else
+            {
+
+            }
+        }
+
+        if (Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary))
+        {
+            Ray ray1;
+            if (Input.GetMouseButton(0))
+            {
+                ray1 = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray1, out RaycastHit hit1, 15, 1 << 2))
+                {
+                    hittingpos = hit1.point;
+                    RotationCollider.transform.position = Distance + hittingpos;
+                }
+            }
+            else
+            {
+
+            }
+        }
+        if (Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended))
+        {
+            if (Input.GetMouseButtonUp(0))                                       
+            {
+                RotationCollider.transform.position = firstRCpos;
+            }
+            else
+            {
+
+            }
+        }
+    }
+    /*
     public void PlusRotation()
     {
         if (rot == true)
@@ -63,5 +122,5 @@ public class RotateCube : MonoBehaviour
             yield return null;
         }
         rot = true;
-    }
+    }*/
 }
