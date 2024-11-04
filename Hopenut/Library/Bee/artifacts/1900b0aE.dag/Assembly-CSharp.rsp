@@ -360,7 +360,6 @@
 "Assets/Script/CameraOrbit.cs"
 "Assets/Script/FamilySet.cs"
 "Assets/Script/JudgementScript.cs"
-"Assets/Script/NewBehaviourScript.cs"
 "Assets/Script/PaintColor.cs"
 "Assets/Script/RotateCube.cs"
 -langversion:9.0

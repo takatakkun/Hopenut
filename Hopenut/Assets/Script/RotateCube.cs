@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using System.Threading.Tasks;
 
 public class RotateCube : MonoBehaviour
 {
@@ -24,6 +23,7 @@ public class RotateCube : MonoBehaviour
     List<float> RotateValue = new List<float> { 0, 0, 0 };
     private bool takkun;
     public FamilySet familySet;
+    public float rotationspeed;
 
     private void Start()
     {
@@ -46,6 +46,7 @@ public class RotateCube : MonoBehaviour
                     //Debug.Log(hit.collider.gameObject.name);
                     firsthitrpos = hit.point;
                     Distance = RotationCollider.transform.position - firsthitrpos;
+                    lasthitrpos = hit.point;
                 }
 
             }
@@ -63,12 +64,11 @@ public class RotateCube : MonoBehaviour
                 ray1 = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray1, out RaycastHit hit1, 15, 1 << 2))
                 {
-                    //await Task.Delay(10);
                     hittingrpos = hit1.point;
 
-                    float rotationspeed;
-                    Vector3 drpos = hit1.point - lasthitrpos;
-                    var maxdrpos = Mathf.Max(drpos.x, drpos.y, drpos.z);
+                    Vector3 drpos = hittingrpos - lasthitrpos;
+                    lasthitrpos = hittingrpos;
+                    /*var maxdrpos = Mathf.Max(drpos.x, drpos.y, drpos.z);
                     var mindrpos = Mathf.Min(drpos.x, drpos.y, drpos.z);
                     if (Mathf.Abs(maxdrpos) > Mathf.Abs(mindrpos))
                     {
@@ -76,12 +76,24 @@ public class RotateCube : MonoBehaviour
                     }
                     else
                     {
-                        rotationspeed = mindrpos*3;
+                        rotationspeed = mindrpos;
+                    }*/
+                    var hitdirection = drpos.x;
+                    switch(PaintColor.directionnum)
+                    {
+                        case 0:
+                            hitdirection = drpos.x;
+                            break;
+                        case 1:
+                            hitdirection = drpos.y;
+                            break;
+                        case 2:
+                            hitdirection = drpos.z;
+                            break;
                     }
-                    float r = PaintColor.rotatedirection;
-                    Rotation += r * rotationspeed*10 * Time.deltaTime;
 
-                    lasthitrpos = hit1.point;
+                    float r = PaintColor.rotatedirection;
+                    Rotation = r * hitdirection * rotationspeed * Time.deltaTime;
 
                     RotationCollider.transform.position = Distance + hittingrpos;
                     
@@ -119,7 +131,6 @@ public class RotateCube : MonoBehaviour
             {
                 RotationCollider.transform.position = firstRCpos;
                 Rotation = 0;
-                //float x = XPlusParent.transform.localEulerAngles.x;
                 for (int i = 0; i < Parents.Length; i++)
                 {
                     if (takkun)

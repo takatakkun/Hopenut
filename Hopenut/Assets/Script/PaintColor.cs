@@ -20,6 +20,7 @@ public class PaintColor : MonoBehaviour
     private Vector3 objpos;
     public static float rotatedirection;
     public static int parentnum;
+    public static int directionnum;
 
     void Update()
     {
@@ -96,6 +97,7 @@ public class PaintColor : MonoBehaviour
                     Vector3 dpos = hittingpos - firsthitpos;
                     if (((dpos.y > -dpos.z && dpos.y < dpos.z) || (dpos.y < -dpos.z && dpos.y > dpos.z)) && ((objpos.x > -0.5 && objpos.x < -0.46) || (objpos.x > 2.46 && objpos.x < 2.5))) //x+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
                     {
+                        directionnum = 2;
                         if ((objpos.y > 1.7 && objpos.y < 2.3))
                         {
                             familyset.YPlusClick();
@@ -127,6 +129,7 @@ public class PaintColor : MonoBehaviour
                     }
                     else if (((dpos.y > -dpos.x && dpos.y < dpos.x) || (dpos.y < -dpos.x && dpos.y > dpos.x)) && ((objpos.z > -0.5 && objpos.z < -0.46) || (objpos.z > 2.46 && objpos.z < 2.5))) //z+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
                     {
+                        directionnum = 0;
                         if ((objpos.y > 1.7 && objpos.y < 2.3))
                         {
                             familyset.YPlusClick();
@@ -158,6 +161,7 @@ public class PaintColor : MonoBehaviour
                     }
                     else if (((dpos.z > -dpos.x && dpos.z < dpos.x) || (dpos.z < -dpos.x && dpos.z > dpos.x)) && ((objpos.y > -0.5 && objpos.y < -0.46) || (objpos.y > 2.46 && objpos.y < 2.5))) //y+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
                     {
+                        directionnum = 0;
                         if (objpos.z > 1.7 && objpos.z < 2.3)
                         {
                             familyset.ZPlusClick();
@@ -189,6 +193,7 @@ public class PaintColor : MonoBehaviour
                     }
                     else if (((dpos.y > dpos.z && dpos.y > -dpos.z) || (dpos.y < dpos.z && dpos.y < -dpos.z)) && ((objpos.x > -0.5 && objpos.x < -0.46) || (objpos.x > 2.46 && objpos.x < 2.5))) //x+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
+                        directionnum = 1;
                         if (objpos.z > 1.7 && objpos.z < 2.3)
                         {
                             familyset.ZPlusClick();
@@ -220,6 +225,7 @@ public class PaintColor : MonoBehaviour
                     }
                     else if (((dpos.y > dpos.x && dpos.y > -dpos.x) || (dpos.y < dpos.x && dpos.y < -dpos.x)) && ((objpos.z > -0.5 && objpos.z < -0.46) || (objpos.z > 2.46 && objpos.z < 2.5))) //z+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
+                        directionnum = 1;
                         if (objpos.x > 1.7 && objpos.x < 2.3)
                         {
                             familyset.XPlusClick();
@@ -251,6 +257,7 @@ public class PaintColor : MonoBehaviour
                     }
                     else if (((dpos.z > dpos.x && dpos.z > -dpos.x) || (dpos.z < dpos.x && dpos.z < -dpos.x)) && ((objpos.y > -0.5 && objpos.y < -0.46) || (objpos.y > 2.46 && objpos.y < 2.5))) //y+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
+                        directionnum = 2;
                         if (objpos.x > 1.7 && objpos.x < 2.3)
                         {
                             familyset.XPlusClick();
