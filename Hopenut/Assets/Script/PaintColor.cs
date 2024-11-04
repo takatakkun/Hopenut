@@ -14,11 +14,12 @@ public class PaintColor : MonoBehaviour
     private Vector2 firstclickpos;
     private Vector2 lastclickpos;
     private Vector3 firsthitpos;
-    public bool rotationable = false;
+    public static bool rotationable = false;
     private Vector3 hittingpos;
     public FamilySet familyset;
     private Vector3 objpos;
-    public float rotatedirection;
+    public static float rotatedirection;
+    public static int parentnum;
 
     void Update()
     {
@@ -35,7 +36,7 @@ public class PaintColor : MonoBehaviour
                     firsthitpos = hit0.point;
                     objpos = hit0.collider.transform.position;
                     rotationable = false;
-                    Debug.Log(firsthitpos);
+                    //Debug.Log(firsthitpos);
                     //   Debug.Log(hit0.point);
                     //   Debug.Log(objpos);
                 }
@@ -62,14 +63,12 @@ public class PaintColor : MonoBehaviour
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 lastclickpos = Input.mousePosition;
                 rotationable = false;
-                familyset.GoodBye();
             }
             else                                                                 //ƒXƒ}ƒz‘€ì
             {
                 ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
                 lastclickpos = Input.GetTouch(0).position;
                 rotationable = false;
-                familyset.GoodBye();
             }
 
             // RaycastHitƒIƒuƒWƒFƒNƒg‚Åƒqƒbƒgî•ñ‚ðŠi”[
@@ -100,174 +99,186 @@ public class PaintColor : MonoBehaviour
                         if ((objpos.y > 1.7 && objpos.y < 2.3))
                         {
                             familyset.YPlusClick();
+                            parentnum = 2;
                             if (objpos.x > 2.46 && objpos.x < 2.5)
                             {
-                                rotatedirection = -dpos.x;
+                                rotatedirection = -1;
                             }
                             else
                             {
-                                rotatedirection = dpos.x;
+                                rotatedirection = 1;
                             }
                         }
                         else if (objpos.y > -0.7 && objpos.y < 0.3)
                         {
                             familyset.YMinusClick();
+                            parentnum = 3;
                             if (objpos.x > 2.46 && objpos.x < 2.5)
                             {
-                                rotatedirection = -dpos.x;
+                                rotatedirection = -1;
                             }
                             else
                             {
-                                rotatedirection = dpos.x;
+                                rotatedirection = 1;
                             }
                         }
                         rotationable = true;
-                        Debug.Log("x+-y");
+                        //Debug.Log("x+-y");
                     }
                     else if (((dpos.y > -dpos.x && dpos.y < dpos.x) || (dpos.y < -dpos.x && dpos.y > dpos.x)) && ((objpos.z > -0.5 && objpos.z < -0.46) || (objpos.z > 2.46 && objpos.z < 2.5))) //z+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
                     {
                         if ((objpos.y > 1.7 && objpos.y < 2.3))
                         {
                             familyset.YPlusClick();
+                            parentnum = 2;
                             if (objpos.z > 2.46 && objpos.z < 2.5)
                             {
-                                rotatedirection = dpos.z;
+                                rotatedirection = 1;
                             }
                             else
                             {
-                                rotatedirection= -dpos.z;
+                                rotatedirection= -1;
                             }
                         }
                         else if (objpos.y > -0.7 && objpos.y < 0.3)
                         {
                             familyset.YMinusClick();
+                            parentnum = 3;
                             if (objpos.z > 2.46 && objpos.z < 2.5)
                             {
-                                rotatedirection = dpos.z;
+                                rotatedirection = 1;
                             }
                             else
                             {
-                                rotatedirection = -dpos.z;
+                                rotatedirection = -1;
                             }
                         }
                         rotationable = true;
-                        Debug.Log("z+-y");
+                       // Debug.Log("z+-y");
                     }
                     else if (((dpos.z > -dpos.x && dpos.z < dpos.x) || (dpos.z < -dpos.x && dpos.z > dpos.x)) && ((objpos.y > -0.5 && objpos.y < -0.46) || (objpos.y > 2.46 && objpos.y < 2.5))) //y+-–Ê‚Å‰¡•ûŒü‚ª‘å‚«‚¢“ü—Í
                     {
                         if (objpos.z > 1.7 && objpos.z < 2.3)
                         {
                             familyset.ZPlusClick();
+                            parentnum = 4;
                             if (objpos.y > 2.46 && objpos.y < 2.5)
                             {
-                                rotatedirection = -dpos.y;
+                                rotatedirection = -1;
                             }
                             else
                             {
-                                rotatedirection= dpos.y;
+                                rotatedirection= 1;
                             }
                         }
                         else if (objpos.z > -0.7 && objpos.z < 0.3)
                         {
                             familyset.ZMinusClick();
+                            parentnum = 5;
                             if (objpos.y > 2.46 && objpos.y < 2.5)
                             {
-                                rotatedirection = -dpos.y;
+                                rotatedirection = -1;
                             }
                             else
                             {
-                                rotatedirection = dpos.y;
+                                rotatedirection = 1;
                             }
                         }
                         rotationable = true;
-                        Debug.Log("y+-y");
+                        //Debug.Log("y+-y");
                     }
                     else if (((dpos.y > dpos.z && dpos.y > -dpos.z) || (dpos.y < dpos.z && dpos.y < -dpos.z)) && ((objpos.x > -0.5 && objpos.x < -0.46) || (objpos.x > 2.46 && objpos.x < 2.5))) //x+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
                         if (objpos.z > 1.7 && objpos.z < 2.3)
                         {
                             familyset.ZPlusClick();
+                            parentnum = 4;
                             if (objpos.x > 2.46 && objpos.x < 2.5)
                             {
-                                rotatedirection = dpos.x;
+                                rotatedirection = 1;
                             }
                             else
                             {
-                                rotatedirection = -dpos.x;
+                                rotatedirection = -1;
                             }
                         }
                         else if (objpos.z > -0.7 && objpos.z < 0.3)
                         {
                             familyset.ZMinusClick();
+                            parentnum = 5;
                             if (objpos.x > 2.46 && objpos.x < 2.5)
                             {
-                                rotatedirection= dpos.x;
+                                rotatedirection= 1;
                             }
                             else
                             {
-                                rotatedirection = -dpos.x;
+                                rotatedirection = -1;
                             }
                         }
                         rotationable = true;
-                        Debug.Log("x+-t");
+                        //Debug.Log("x+-t");
                     }
                     else if (((dpos.y > dpos.x && dpos.y > -dpos.x) || (dpos.y < dpos.x && dpos.y < -dpos.x)) && ((objpos.z > -0.5 && objpos.z < -0.46) || (objpos.z > 2.46 && objpos.z < 2.5))) //z+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
                         if (objpos.x > 1.7 && objpos.x < 2.3)
                         {
                             familyset.XPlusClick();
+                            parentnum = 0;
                             if (objpos.z > 2.46 && objpos.z < 2.5)
                             {
-                                rotatedirection = -dpos.z;
+                                rotatedirection = -1;
                             }
                             else
                             {
-                                rotatedirection = dpos.z;
+                                rotatedirection = 1;
                             }
                         }
                         else if (objpos.x > -0.7 && objpos.x < 0.3)
                         {
                             familyset.XMinusClick();
+                            parentnum = 1;
                             if (objpos.z > 2.46 && objpos.z < 2.5)
                             {
-                                rotatedirection = -dpos.z;
+                                rotatedirection = -1;
                             }
                             else
                             {
-                                rotatedirection= dpos.z;
+                                rotatedirection= 1;
                             }
                         }
                         rotationable = true;
-                        Debug.Log("z+-t");
+                        //Debug.Log("z+-t");
                     }
                     else if (((dpos.z > dpos.x && dpos.z > -dpos.x) || (dpos.z < dpos.x && dpos.z < -dpos.x)) && ((objpos.y > -0.5 && objpos.y < -0.46) || (objpos.y > 2.46 && objpos.y < 2.5))) //y+-c•ûŒü‚Ì‚Ù‚¤‚ª‘å‚«‚¢“ü—Í
                     {
                         if (objpos.x > 1.7 && objpos.x < 2.3)
                         {
                             familyset.XPlusClick();
+                            parentnum = 0;
                             if (objpos.y > 2.46 && objpos.y < 2.5)
                             {
-                                rotatedirection = dpos.y;
+                                rotatedirection = 1;
                             }
                             else
                             {
-                                rotatedirection = -dpos.y;
+                                rotatedirection = -1;
                             }
                         }
                         else if (objpos.x > -0.7 && objpos.x < 0.3)
                         {
                             familyset.XMinusClick();
+                            parentnum = 1;
                             if (objpos.y > 2.46 && objpos.y < 2.5)
                             {
-                                rotatedirection = dpos.y;
+                                rotatedirection = 1;
                             }
                             else
                             {
-                                rotatedirection = -dpos.y;
+                                rotatedirection = -1;
                             }
                         }
                         rotationable = true;
-                        Debug.Log("y+-t");
+                        //Debug.Log("y+-t");
                     }
                 }
             }

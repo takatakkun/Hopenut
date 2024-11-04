@@ -105,5 +105,12 @@ public class FamilySet : MonoBehaviour
         YMinusParent.transform.DetachChildren();
         ZPlusParent.transform.DetachChildren();
         ZMinusParent.transform.DetachChildren();
+
+        XPlusParent.transform.rotation = Quaternion.Euler(0, 0, 0);
+        XMinusParent.transform.rotation =Quaternion.Euler(0, 0, 0);
+        YPlusParent.transform.rotation = Quaternion.Euler(0, 0, 0);
+        YMinusParent.transform.rotation = Quaternion.Euler(0, 0, 0);
+        ZPlusParent.transform.rotation = Quaternion.Euler(0, 0, 0);
+        ZMinusParent.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

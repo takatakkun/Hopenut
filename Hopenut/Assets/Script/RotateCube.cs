@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using System.Threading.Tasks;
 
 public class RotateCube : MonoBehaviour
 {
@@ -12,33 +13,39 @@ public class RotateCube : MonoBehaviour
     public GameObject ZMinusParent;
     //bool rot = true;
     //float speed = 1f;
-    private Vector3 firsthitpos;
-    private Vector3 hittingpos;
+    private Vector3 firsthitrpos;
+    private Vector3 lasthitrpos;
+    private Vector3 hittingrpos;
     public GameObject RotationCollider;
     private Vector3 Distance;
     private Vector3 firstRCpos;
-    public PaintColor paintcolor;
+    private float Rotation = 0;
+    [SerializeField] GameObject[] Parents = new GameObject[6] { null, null, null, null, null, null };
+    List<float> RotateValue = new List<float> { 0, 0, 0 };
+    private bool takkun;
+    public FamilySet familySet;
 
     private void Start()
     {
-        paintcolor = GetComponent<PaintColor>();
+        firstRCpos = RotationCollider.transform.position;
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
+            takkun = true;
+
             Ray ray;
-            firstRCpos = RotationCollider.transform.position;
 
             if (Input.GetMouseButtonDown(0))
             {
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out RaycastHit hit, 15, 1 << 2)) //レーザーの距離15、レイヤーが2のやつだけに当たる
                 {
-                    Debug.Log(hit.collider.gameObject.name);
-                    firsthitpos = hit.point;
-                    Distance = RotationCollider.transform.position - firsthitpos;
+                    //Debug.Log(hit.collider.gameObject.name);
+                    firsthitrpos = hit.point;
+                    Distance = RotationCollider.transform.position - firsthitrpos;
                 }
 
             }
@@ -48,7 +55,7 @@ public class RotateCube : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary))
+        if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)) && PaintColor.rotationable)
         {
             Ray ray1;
             if (Input.GetMouseButton(0))
@@ -56,19 +63,49 @@ public class RotateCube : MonoBehaviour
                 ray1 = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray1, out RaycastHit hit1, 15, 1 << 2))
                 {
-                    hittingpos = hit1.point;
-                    RotationCollider.transform.position = Distance + hittingpos;
-                    //Debug.Log(paintcolor.rotationable);
-/*                    if (paintcolor.rotationable == true)
+                    //await Task.Delay(10);
+                    hittingrpos = hit1.point;
+
+                    float rotationspeed;
+                    Vector3 drpos = hit1.point - lasthitrpos;
+                    var maxdrpos = Mathf.Max(drpos.x, drpos.y, drpos.z);
+                    var mindrpos = Mathf.Min(drpos.x, drpos.y, drpos.z);
+                    if (Mathf.Abs(maxdrpos) > Mathf.Abs(mindrpos))
                     {
-                        float r = paintcolor.rotatedirection;
-                        XPlusParent.transform.Rotate(r, 0, 0);
-                        XMinusParent.transform.Rotate(r, 0, 0);
-                        YPlusParent.transform.Rotate(0, r, 0);
-                        YMinusParent.transform.Rotate(0, r, 0);
-                        ZPlusParent.transform.Rotate(0, 0, r);
-                        ZMinusParent.transform.Rotate(0, 0, r);
-                    }*/
+                        rotationspeed = maxdrpos;
+                    }
+                    else
+                    {
+                        rotationspeed = mindrpos*3;
+                    }
+                    float r = PaintColor.rotatedirection;
+                    Rotation += r * rotationspeed*10 * Time.deltaTime;
+
+                    lasthitrpos = hit1.point;
+
+                    RotationCollider.transform.position = Distance + hittingrpos;
+                    
+                    switch(PaintColor.parentnum)
+                    {
+                        case 0:
+                            XPlusParent.transform.Rotate(new Vector3(1, 0, 0), Rotation);
+                            break;
+                        case 1:
+                            XMinusParent.transform.Rotate(new Vector3(1, 0, 0), Rotation);
+                            break;
+                        case 2:
+                            YPlusParent.transform.Rotate(new Vector3(0, 1, 0), Rotation);
+                            break;
+                        case 3:
+                            YMinusParent.transform.Rotate(new Vector3(0, 1, 0), Rotation);
+                            break;
+                        case 4:
+                            ZPlusParent.transform.Rotate(new Vector3(0, 0, 1), Rotation);
+                            break;
+                        case 5:
+                            ZMinusParent.transform.Rotate(new Vector3(0, 0, 1), Rotation);
+                            break;
+                    }
                 }
             }
             else
@@ -81,11 +118,63 @@ public class RotateCube : MonoBehaviour
             if (Input.GetMouseButtonUp(0))                                       
             {
                 RotationCollider.transform.position = firstRCpos;
+                Rotation = 0;
+                //float x = XPlusParent.transform.localEulerAngles.x;
+                for (int i = 0; i < Parents.Length; i++)
+                {
+                    if (takkun)
+                    {
+                        float xRotation = Parents[i].transform.localEulerAngles.x;
+                        float yRotation = Parents[i].transform.localEulerAngles.y;
+                        float zRotation = Parents[i].transform.localEulerAngles.z;
+                        RotateValue[0] = xRotation;
+                        RotateValue[1] = yRotation;
+                        RotateValue[2] = zRotation;
+
+                        if (xRotation % 90 != 0 || yRotation % 90 != 0 || zRotation % 90 != 0)
+                        {
+                            for (int j = 0; j < 3; j++)
+                            {
+                                while (RotateValue[j] < 0)
+                                {
+                                    RotateValue[j] += 360;
+                                }
+                                while (RotateValue[j] >= 360)
+                                {
+                                    RotateValue[j] -= 360;
+                                }
+                                if (RotateValue[j] >= 0 && RotateValue[j] < 45)
+                                {
+                                    RotateValue[j] = 0;
+                                }
+                                if (RotateValue[j] >= 45 && RotateValue[j] < 135)
+                                {
+                                    RotateValue[j] = 90;
+                                }
+                                if (RotateValue[j] >= 135 && RotateValue[j] < 225)
+                                {
+                                    RotateValue[j] = 180;
+                                }
+                                if (RotateValue[j] >= 225 && RotateValue[j] < 315)
+                                {
+                                    RotateValue[j] = 270;
+                                }
+                                if (RotateValue[j] >= 315 && RotateValue[j] <= 360)
+                                {
+                                    RotateValue[j] = 0;
+                                }
+                            }
+                            takkun = false;
+                        }
+                    }
+                    Parents[i].transform.rotation = Quaternion.Euler(RotateValue[0], RotateValue[1], RotateValue[2]);
+                }
             }
             else
             {
 
             }
+            familySet.GoodBye();
         }
     }
     /*
