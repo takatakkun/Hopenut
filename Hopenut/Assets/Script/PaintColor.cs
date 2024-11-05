@@ -111,7 +111,7 @@ public class PaintColor : MonoBehaviour
                                 rotatedirection = 1;
                             }
                         }
-                        else if (objpos.y > -0.7 && objpos.y < 0.3)
+                        else if (objpos.y > -0.3 && objpos.y < 0.3)
                         {
                             familyset.YMinusClick();
                             parentnum = 3;
@@ -143,7 +143,7 @@ public class PaintColor : MonoBehaviour
                                 rotatedirection= -1;
                             }
                         }
-                        else if (objpos.y > -0.7 && objpos.y < 0.3)
+                        else if (objpos.y > -0.3 && objpos.y < 0.3)
                         {
                             familyset.YMinusClick();
                             parentnum = 3;
@@ -175,7 +175,7 @@ public class PaintColor : MonoBehaviour
                                 rotatedirection= 1;
                             }
                         }
-                        else if (objpos.z > -0.7 && objpos.z < 0.3)
+                        else if (objpos.z > -0.3 && objpos.z < 0.3)
                         {
                             familyset.ZMinusClick();
                             parentnum = 5;
@@ -207,7 +207,7 @@ public class PaintColor : MonoBehaviour
                                 rotatedirection = -1;
                             }
                         }
-                        else if (objpos.z > -0.7 && objpos.z < 0.3)
+                        else if (objpos.z > -0.3 && objpos.z < 0.3)
                         {
                             familyset.ZMinusClick();
                             parentnum = 5;
@@ -239,7 +239,7 @@ public class PaintColor : MonoBehaviour
                                 rotatedirection = 1;
                             }
                         }
-                        else if (objpos.x > -0.7 && objpos.x < 0.3)
+                        else if (objpos.x > -0.3 && objpos.x < 0.3)
                         {
                             familyset.XMinusClick();
                             parentnum = 1;
@@ -271,7 +271,7 @@ public class PaintColor : MonoBehaviour
                                 rotatedirection = -1;
                             }
                         }
-                        else if (objpos.x > -0.7 && objpos.x < 0.3)
+                        else if (objpos.x > -0.3 && objpos.x < 0.3)
                         {
                             familyset.XMinusClick();
                             parentnum = 1;

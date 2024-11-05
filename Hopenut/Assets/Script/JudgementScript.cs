@@ -20,6 +20,14 @@ public class JudgementScript : MonoBehaviour
     List<Material> ZPlist = new List<Material> { null, null, null, null, null, null, null, null, null };
     List<Material> ZMlist = new List<Material> { null, null, null, null, null, null, null, null, null };
 
+    private void Start()
+    {
+        var a = Red.color;
+        var b = Blue.color;
+        var c = Orange.color;
+        var d = Green.color;
+    }
+
     public void Judgement()
     {
         for (int i = 0; i < Quad.Length; i++)
@@ -78,5 +86,41 @@ public class JudgementScript : MonoBehaviour
                 Debug.Log("ŽG‹›‰³");
             }*/
         }
+        List<List<Material>> net = new List<List<Material>> { XPlist, XMlist, YPlist, YMlist, ZPlist, ZMlist };
+        List<Material> materiallist = new List<Material> { Red, Blue, Orange, Green };
+        List<int> countlist = new List<int> { 0, 0, 0, 0 };
+
+        List<int[]> lines = new List<int[]>();
+        lines.Add(new int[] { 0, 1, 2 });
+        lines.Add(new int[] { 3, 4, 5 });
+        lines.Add(new int[] { 6, 7, 8 });
+        lines.Add(new int[] { 0, 3, 6 });
+        lines.Add(new int[] { 1, 4, 7 });
+        lines.Add(new int[] { 2, 5, 8 });
+        lines.Add(new int[] { 0, 4, 8 });
+        lines.Add(new int[] { 2, 4, 6 });
+
+        for (int i = 0; i < net.Count; i++)
+        {
+            List<Material> netelement = net[i];
+
+            foreach (var v in lines)
+            {
+                int idx0 = v[0];
+                int idx1 = v[1];
+                int idx2 = v[2];
+                if (netelement[idx0] == netelement[idx1] && netelement[idx1] == netelement[idx2] && netelement[idx0] != null)
+                {
+                    for (int j = 0; j < materiallist.Count; j++)
+                    {
+                        if (netelement[idx0] == materiallist[j])
+                        {
+                            countlist[j] += 1;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

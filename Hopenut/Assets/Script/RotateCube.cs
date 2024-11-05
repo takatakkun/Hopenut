@@ -34,7 +34,7 @@ public class RotateCube : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
-            takkun = true;
+           // takkun = true;
 
             Ray ray;
 
@@ -133,8 +133,8 @@ public class RotateCube : MonoBehaviour
                 Rotation = 0;
                 for (int i = 0; i < Parents.Length; i++)
                 {
-                    if (takkun)
-                    {
+                    /*if (takkun)
+                    {*/
                         float xRotation = Parents[i].transform.localEulerAngles.x;
                         float yRotation = Parents[i].transform.localEulerAngles.y;
                         float zRotation = Parents[i].transform.localEulerAngles.z;
@@ -175,8 +175,8 @@ public class RotateCube : MonoBehaviour
                                     RotateValue[j] = 0;
                                 }
                             }
-                            takkun = false;
-                        }
+                           /* takkun = false;
+                        }*/
                     }
                     Parents[i].transform.rotation = Quaternion.Euler(RotateValue[0], RotateValue[1], RotateValue[2]);
                 }
