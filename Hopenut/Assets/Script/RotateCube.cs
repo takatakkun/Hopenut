@@ -68,16 +68,6 @@ public class RotateCube : MonoBehaviour
 
                     Vector3 drpos = hittingrpos - lasthitrpos;
                     lasthitrpos = hittingrpos;
-                    /*var maxdrpos = Mathf.Max(drpos.x, drpos.y, drpos.z);
-                    var mindrpos = Mathf.Min(drpos.x, drpos.y, drpos.z);
-                    if (Mathf.Abs(maxdrpos) > Mathf.Abs(mindrpos))
-                    {
-                        rotationspeed = maxdrpos;
-                    }
-                    else
-                    {
-                        rotationspeed = mindrpos;
-                    }*/
                     var hitdirection = drpos.x;
                     switch(PaintColor.directionnum)
                     {
