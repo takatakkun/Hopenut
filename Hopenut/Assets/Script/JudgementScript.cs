@@ -12,6 +12,7 @@ public class JudgementScript : MonoBehaviour
     public Material Blue;
     public Material Green;
     public Material Orange;
+    public Material White;
     [SerializeField] GameObject[] Quad = new GameObject[54] { null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,  null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null };
     List<Material> XPlist = new List<Material> { null, null, null, null, null, null, null, null, null };
     List<Material> XMlist = new List<Material> { null, null, null, null, null, null, null, null, null };
@@ -20,13 +21,7 @@ public class JudgementScript : MonoBehaviour
     List<Material> ZPlist = new List<Material> { null, null, null, null, null, null, null, null, null };
     List<Material> ZMlist = new List<Material> { null, null, null, null, null, null, null, null, null };
 
-    private void Start()
-    {
-        var a = Red.color;
-        var b = Blue.color;
-        var c = Orange.color;
-        var d = Green.color;
-    }
+    
 
     public void Judgement()
     {
@@ -109,11 +104,11 @@ public class JudgementScript : MonoBehaviour
                 int idx0 = v[0];
                 int idx1 = v[1];
                 int idx2 = v[2];
-                if (netelement[idx0] == netelement[idx1] && netelement[idx1] == netelement[idx2] && netelement[idx0] != null)
+                if (netelement[idx0].color == netelement[idx1].color && netelement[idx1].color == netelement[idx2].color && netelement[idx0].color != White.color)
                 {
                     for (int j = 0; j < materiallist.Count; j++)
                     {
-                        if (netelement[idx0] == materiallist[j])
+                        if (netelement[idx0].color == materiallist[j].color)
                         {
                             countlist[j] += 1;
                         }
@@ -121,6 +116,5 @@ public class JudgementScript : MonoBehaviour
                 }
             }
         }
-
     }
 }
