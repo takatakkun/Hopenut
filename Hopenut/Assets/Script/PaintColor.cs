@@ -21,6 +21,9 @@ public class PaintColor : MonoBehaviour
     public static float rotatedirection;
     public static int parentnum;
     public static int directionnum;
+    public static bool pinx = false;
+    public static bool piny = false;
+    public static bool pinz = false;
 
     void Update()
     {
@@ -84,6 +87,9 @@ public class PaintColor : MonoBehaviour
                 }
             }
                 firstclickpos = lastclickpos;
+            pinx = false;
+            piny = false;
+            pinz = false;
         }
         
         if ((Input.GetMouseButton(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary)) && rotationable == false)
@@ -105,10 +111,14 @@ public class PaintColor : MonoBehaviour
                             if (objpos.x > 2.46 && objpos.x < 2.5)
                             {
                                 rotatedirection = -1;
+                                pinx = true;
+                                piny = true;
                             }
                             else
                             {
                                 rotatedirection = 1;
+                                pinx = true;
+                                piny = true;
                             }
                         }
                         else if (objpos.y > -0.3 && objpos.y < 0.3)
@@ -118,10 +128,14 @@ public class PaintColor : MonoBehaviour
                             if (objpos.x > 2.46 && objpos.x < 2.5)
                             {
                                 rotatedirection = -1;
+                                pinx = true;
+                                piny = true;
                             }
                             else
                             {
                                 rotatedirection = 1;
+                                pinx = true;
+                                piny = true;
                             }
                         }
                         rotationable = true;
@@ -137,10 +151,14 @@ public class PaintColor : MonoBehaviour
                             if (objpos.z > 2.46 && objpos.z < 2.5)
                             {
                                 rotatedirection = 1;
+                                pinz = true;
+                                piny = true;
                             }
                             else
                             {
                                 rotatedirection= -1;
+                                pinz = true;
+                                piny = true;
                             }
                         }
                         else if (objpos.y > -0.3 && objpos.y < 0.3)
@@ -150,10 +168,14 @@ public class PaintColor : MonoBehaviour
                             if (objpos.z > 2.46 && objpos.z < 2.5)
                             {
                                 rotatedirection = 1;
+                                pinz = true;
+                                piny = true;
                             }
                             else
                             {
                                 rotatedirection = -1;
+                                pinz = true;
+                                piny = true;
                             }
                         }
                         rotationable = true;
@@ -169,10 +191,14 @@ public class PaintColor : MonoBehaviour
                             if (objpos.y > 2.46 && objpos.y < 2.5)
                             {
                                 rotatedirection = -1;
+                                pinz = true;
+                                piny = true;
                             }
                             else
                             {
                                 rotatedirection= 1;
+                                pinz = true;
+                                piny = true;
                             }
                         }
                         else if (objpos.z > -0.3 && objpos.z < 0.3)
@@ -182,10 +208,14 @@ public class PaintColor : MonoBehaviour
                             if (objpos.y > 2.46 && objpos.y < 2.5)
                             {
                                 rotatedirection = -1;
+                                pinz = true;
+                                piny = true;
                             }
                             else
                             {
                                 rotatedirection = 1;
+                                pinz = true;
+                                piny = true;
                             }
                         }
                         rotationable = true;
@@ -201,10 +231,14 @@ public class PaintColor : MonoBehaviour
                             if (objpos.x > 2.46 && objpos.x < 2.5)
                             {
                                 rotatedirection = 1;
+                                pinx = true;
+                                pinz = true;
                             }
                             else
                             {
                                 rotatedirection = -1;
+                                pinx = true;
+                                pinz = true;
                             }
                         }
                         else if (objpos.z > -0.3 && objpos.z < 0.3)
@@ -214,10 +248,14 @@ public class PaintColor : MonoBehaviour
                             if (objpos.x > 2.46 && objpos.x < 2.5)
                             {
                                 rotatedirection= 1;
+                                pinx = true;
+                                pinz = true;
                             }
                             else
                             {
                                 rotatedirection = -1;
+                                pinx = true;
+                                pinz = true;
                             }
                         }
                         rotationable = true;
@@ -232,11 +270,15 @@ public class PaintColor : MonoBehaviour
                             parentnum = 0;
                             if (objpos.z > 2.46 && objpos.z < 2.5)
                             {
+                                pinx = true;
+                                pinz = true;
                                 rotatedirection = -1;
                             }
                             else
                             {
                                 rotatedirection = 1;
+                                pinx = true;
+                                pinz = true;
                             }
                         }
                         else if (objpos.x > -0.3 && objpos.x < 0.3)
@@ -246,10 +288,14 @@ public class PaintColor : MonoBehaviour
                             if (objpos.z > 2.46 && objpos.z < 2.5)
                             {
                                 rotatedirection = -1;
+                                pinx = true;
+                                pinz = true;
                             }
                             else
                             {
                                 rotatedirection= 1;
+                                pinx = true;
+                                pinz = true;
                             }
                         }
                         rotationable = true;
@@ -265,10 +311,14 @@ public class PaintColor : MonoBehaviour
                             if (objpos.y > 2.46 && objpos.y < 2.5)
                             {
                                 rotatedirection = 1;
+                                pinx = true;
+                                piny = true;
                             }
                             else
                             {
                                 rotatedirection = -1;
+                                pinx = true;
+                                piny = true;
                             }
                         }
                         else if (objpos.x > -0.3 && objpos.x < 0.3)
@@ -278,10 +328,14 @@ public class PaintColor : MonoBehaviour
                             if (objpos.y > 2.46 && objpos.y < 2.5)
                             {
                                 rotatedirection = 1;
+                                pinx = true;
+                                piny = true;
                             }
                             else
                             {
                                 rotatedirection = -1;
+                                pinx = true;
+                                piny = true;
                             }
                         }
                         rotationable = true;

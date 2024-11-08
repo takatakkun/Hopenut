@@ -85,9 +85,15 @@ public class RotateCube : MonoBehaviour
                     float r = PaintColor.rotatedirection;
                     Rotation = r * hitdirection * rotationspeed * Time.deltaTime;
 
-                    RotationCollider.transform.position = Distance + hittingrpos;
-                    
-                    switch(PaintColor.parentnum)
+                    Vector3 rotationcolliderpos = RotationCollider.transform.position;
+                    rotationcolliderpos = Distance + hittingrpos;
+                    if(PaintColor.pinx) rotationcolliderpos.x = 1;
+                    if(PaintColor.piny) rotationcolliderpos.y = 1;
+                    if(PaintColor.pinz) rotationcolliderpos.z = 1;
+                    RotationCollider.transform.position = rotationcolliderpos;
+
+
+                    switch (PaintColor.parentnum)
                     {
                         case 0:
                             XPlusParent.transform.Rotate(new Vector3(1, 0, 0), Rotation);
