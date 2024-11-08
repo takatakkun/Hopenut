@@ -301,7 +301,6 @@ public class PaintColor : MonoBehaviour
     public void RedTurn()
     {
         paintColor = red;
-        Debug.Log("RED");
     }
 
     public void GreenTurn()
