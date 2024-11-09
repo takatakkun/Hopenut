@@ -86,11 +86,16 @@ public class RotateCube : MonoBehaviour
                     Rotation = r * hitdirection * rotationspeed * Time.deltaTime;
 
                     Vector3 rotationcolliderpos = RotationCollider.transform.position;
+                    Vector3 rotationcolliderscale = RotationCollider.transform.lossyScale;
                     rotationcolliderpos = Distance + hittingrpos;
                     if(PaintColor.pinx) rotationcolliderpos.x = 1;
                     if(PaintColor.piny) rotationcolliderpos.y = 1;
                     if(PaintColor.pinz) rotationcolliderpos.z = 1;
+                    if(PaintColor.bigx) rotationcolliderscale.x = 15;
+                    if(PaintColor.bigy) rotationcolliderscale.y = 15;
+                    if(PaintColor.bigz) rotationcolliderscale.z = 15;
                     RotationCollider.transform.position = rotationcolliderpos;
+                    RotationCollider.transform.localScale = rotationcolliderscale;
 
 
                     switch (PaintColor.parentnum)
@@ -182,6 +187,7 @@ public class RotateCube : MonoBehaviour
 
             }
             familySet.GoodBye();
+            RotationCollider.transform.localScale = new Vector3(3, 3, 3);
         }
     }
     /*
