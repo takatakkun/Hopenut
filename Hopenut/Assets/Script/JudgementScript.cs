@@ -109,7 +109,7 @@ public class JudgementScript : MonoBehaviour
 
     }
 
-    public List<int> Judgement(List<List<Material>> net)
+    public List<int> Judgement( List<List<Material>> net)
     {
         List<Material> materiallist = new List<Material> { Red, Blue, Orange, Green };
         List<int> countlist = new List<int> { 0, 0, 0, 0 };
@@ -145,12 +145,6 @@ public class JudgementScript : MonoBehaviour
                 }
             }
         }
-<<<<<<< Updated upstream
-=======
-        /* Debug.Log(countlist[0]);
-         Debug.Log(countlist[1]);
-         Debug.Log(countlist[2]);
-         Debug.Log(countlist[3]);*/
         return countlist;
     }
     public void aaa()
@@ -168,8 +162,5 @@ public class JudgementScript : MonoBehaviour
         Debug.Log(b[1]);
         Debug.Log(b[2]);
         Debug.Log(b[3]);
-
->>>>>>> Stashed changes
     }
 }
-
