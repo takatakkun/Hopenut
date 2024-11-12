@@ -21,9 +21,18 @@ public class JudgementScript : MonoBehaviour
     List<Material> ZPlist = new List<Material> { null, null, null, null, null, null, null, null, null };
     List<Material> ZMlist = new List<Material> { null, null, null, null, null, null, null, null, null };
 
-    
+    // Debug.Log("ŽG‹›‰³");
 
-    public void Judgement()
+    int turncount;
+
+    public Material nowcolor()
+    {
+        List<Material> materiallist = new List<Material> { Red, Blue, Orange, Green };
+        int turn = turncount % 4;
+        var nowc = materiallist[turn];
+        return nowc;
+    }
+    public List<List<Material>> originalsort()
     {
         for (int i = 0; i < Quad.Length; i++)
         {
@@ -34,54 +43,74 @@ public class JudgementScript : MonoBehaviour
             int mx = Mathf.RoundToInt(tmp.x);
             int my = Mathf.RoundToInt(tmp.y);
             int mz = Mathf.RoundToInt(tmp.z);
-            if ( x > 2.3f && x < 2.7f)
+            if (x > 2.3f && x < 2.7f)
             {
                 int idx = mz + my * 3;
 
-                XPlist.Insert(idx, Quad[i].GetComponent<Renderer>().material);
-                XPlist.RemoveAt(idx+1);  
+                XPlist[idx] = Quad[i].GetComponent<Renderer>().material;
             }
             if (x > -0.7f && x < -0.3f)
             {
                 int idx = my + mz * 3;
 
-                XMlist.Insert(idx, Quad[i].GetComponent<Renderer>().material);
-                XMlist.RemoveAt(idx + 1);
+                XMlist[idx] = Quad[i].GetComponent<Renderer>().material;
             }
             if (y > 2.3f && y < 2.7f)
             {
                 int idx = mx + mz * 3;
 
-                YPlist.Insert(idx, Quad[i].GetComponent<Renderer>().material);
-                YPlist.RemoveAt(idx + 1);
+                YPlist[idx] = Quad[i].GetComponent<Renderer>().material;
             }
             if (y > -0.7f && y < -0.3f)
             {
                 int idx = mz + mx * 3;
 
-                YMlist.Insert(idx, Quad[i].GetComponent<Renderer>().material);
-                YMlist.RemoveAt(idx + 1);
+                YMlist[idx] = Quad[i].GetComponent<Renderer>().material;
             }
             if (z > 2.3f && z < 2.7f)
             {
                 int idx = my + mx * 3;
 
-                ZPlist.Insert(idx, Quad[i].GetComponent<Renderer>().material);
-                ZPlist.RemoveAt(idx + 1);
+                ZPlist[idx] = Quad[i].GetComponent<Renderer>().material;
             }
             if (z > -0.7f && z < -0.3f)
             {
                 int idx = mx + my * 3;
 
-                ZMlist.Insert(idx, Quad[i].GetComponent<Renderer>().material);
-                ZMlist.RemoveAt(idx + 1);
+                ZMlist[idx] = Quad[i].GetComponent<Renderer>().material;
             }
-            /*else
-            {
-                Debug.Log("ŽG‹›‰³");
-            }*/
         }
         List<List<Material>> net = new List<List<Material>> { XPlist, XMlist, YPlist, YMlist, ZPlist, ZMlist };
+        return net;
+    }
+
+    public List<List<Material>> itte(int rotable, int men, int rop)
+    {
+        var net = originalsort();
+
+        if (rotable == 0)
+        {
+            Material nc = nowcolor();
+            net[men][rop] = nc;
+            return net;
+        }
+        if (rotable == 1)
+        {
+
+
+
+
+            return net;
+        }
+        else
+        {
+            return net;
+        }
+
+    }
+
+    public List<int> Judgement(List<List<Material>> net)
+    {
         List<Material> materiallist = new List<Material> { Red, Blue, Orange, Green };
         List<int> countlist = new List<int> { 0, 0, 0, 0 };
 
@@ -116,5 +145,31 @@ public class JudgementScript : MonoBehaviour
                 }
             }
         }
+<<<<<<< Updated upstream
+=======
+        /* Debug.Log(countlist[0]);
+         Debug.Log(countlist[1]);
+         Debug.Log(countlist[2]);
+         Debug.Log(countlist[3]);*/
+        return countlist;
+    }
+    public void aaa()
+    {
+        var a = Judgement(itte(0, 1, 2));
+        Debug.Log(a[0]);
+        Debug.Log(a[1]);
+        Debug.Log(a[2]);
+        Debug.Log(a[3]);
+    }
+    public void bbb()
+    {
+        var b = Judgement(originalsort());
+        Debug.Log(b[0]);
+        Debug.Log(b[1]);
+        Debug.Log(b[2]);
+        Debug.Log(b[3]);
+
+>>>>>>> Stashed changes
     }
 }
+
