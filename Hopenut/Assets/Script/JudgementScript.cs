@@ -116,5 +116,10 @@ public class JudgementScript : MonoBehaviour
                 }
             }
         }
+        for (int i = 0; i < countlist.Count; i++)
+        {
+            if(countlist[i] != 0)
+            Debug.Log(countlist[i] + "‚ÌŸ—˜");
+        }
     }
 }
